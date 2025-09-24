@@ -6,6 +6,7 @@ import './index.css';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import Shope from './pages/Shope';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/contact-us',
         element: <Contact/>,
+      },
+      {
+        path: '/shope',
+        element: <Shope/>,
       },
     ],
   },
