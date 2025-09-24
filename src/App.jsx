@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import RootLayouts from './layouts/Root';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  
+  return(
     <>
-      
-     
+    <RootLayouts/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
