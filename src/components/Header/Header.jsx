@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaShoppingBag } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
@@ -7,12 +7,31 @@ import { NavMenu } from "./NavMenu";
 
 const Header = () => {
   const [isMenuOpen ,setMenuIsOpen] = useState('false')
+  const [isScrolled ,setScrolled] = useState('false')
   const toggleMenu =()=>{
     setMenuIsOpen(prevState => !prevState)
   }
 
+//  whn scroll apply bg color to navbar
+ useEffect(() =>{
+  const handleScroll =()=>{
+    if(window.scrollY > 50 ){
+      setScrolled(true)
+    }
+    else{
+      setScrolled(false)
+    }
+  }
+  window.addEventListener('scroll', handleScroll);
+  return()=>{
+    window.addEventListener('scroll', handleScroll);
+  }
+ },[])
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 text-white`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 ${isScrolled ? 'bg-white shadow-md' : "bg-transparent text-white"}`}
+    >
       <nav className="max-w-screen-2xl container mx-auto flex justify-between items-center py-6 px-4">
         {/* logo  */}
         <Link
@@ -37,7 +56,7 @@ const Header = () => {
           }`}
         >
           <div className="cursor-pointer" onClick={toggleMenu}>
-            <RxCross2 className="text-2xl"/>
+            <RxCross2 className="text-2xl" />
           </div>
           <NavMenu toggleMenu={toggleMenu} />
         </div>
