@@ -26,9 +26,18 @@ const Hero = () => {
         </div>
       </div>
       {/* Bluer Effect  */}
-      <div className='absolute inset-x-0 bottom-0 h-3/4 -mb-2 bg-gradient-to-t from-white via-transparent to-transparent blur-sm'>
+      <div className='absolute inset-x-0 bottom-0 h-3/4 -mb-2 bg-gradient-to-t from-white via-transparent to-transparent blur-sm'/>
+      
+
+      {/* hover button for displaying tooltip box  */}
+      <div className='absolute bottom-40 left-24 group'>
+      <button className='relative p-4 bg-white/25 rounded-full border'>
+        
+      </button>
 
       </div>
+
+      
     </section>
   );
 };
